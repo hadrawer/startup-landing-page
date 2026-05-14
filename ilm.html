@@ -156,10 +156,12 @@
     }
     .nav-logo-mark {
       width: 38px; height: 38px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      background: var(--white);
       display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 18px; color: var(--white);
-      letter-spacing: -0.5px;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .nav-logo-mark img {
+      width: 100%; height: 100%; object-fit: contain;
     }
     .nav-logo-text {
       font-size: 20px; font-weight: 800; color: var(--white);
@@ -302,9 +304,11 @@
     }
     .mock-avatar {
       width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--cyan), var(--blue));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; color: var(--white); font-weight: 700;
+      background: var(--white);
+      overflow: hidden; flex-shrink: 0;
+    }
+    .mock-avatar img {
+      width: 100%; height: 100%; object-fit: contain;
     }
     .mock-title { font-size: 14px; font-weight: 600; color: var(--white); }
     .mock-sub { font-size: 12px; color: rgba(246,231,188,0.6); }
@@ -378,13 +382,19 @@
 
     /* ─── Problem Section ───────────────────────────────────────── */
     .problem { background: var(--white); position: relative; }
-    .problem-header { text-align: center; margin-bottom: 48px; }
+    .problem.section {
+      padding: 0; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .problem-header { text-align: center; margin-bottom: 20px; }
+    .problem .section-title { font-size: clamp(20px, 2.8vw, 30px); margin-bottom: 8px; }
+    .problem .section-sub { font-size: 14px; }
     .problem-cards-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
     }
     .problem-card {
-      border: 1px solid var(--gray-200); border-radius: 18px;
-      padding: 36px 32px; background: var(--white);
+      border: 1px solid var(--gray-200); border-radius: 14px;
+      padding: 18px 20px; background: var(--white);
       transition: all var(--transition); position: relative; overflow: hidden;
     }
     .problem-card::after {
@@ -399,9 +409,21 @@
       box-shadow: 0 8px 32px rgba(11,45,114,0.09);
       transform: translateY(-3px);
     }
-    .problem-card-icon { font-size: 36px; margin-bottom: 18px; }
-    .problem-card-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .problem-card-text { font-size: 14px; color: var(--gray-600); line-height: 1.65; }
+    .problem-card-icon { font-size: 24px; margin-bottom: 8px; }
+    .problem-card-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+    .problem-card-text { font-size: 12px; color: var(--gray-600); line-height: 1.55; margin-bottom: 10px; }
+    .problem-card-bullets {
+      display: flex; flex-direction: column; gap: 5px;
+      padding-top: 10px; border-top: 1px solid var(--gray-100);
+    }
+    .problem-card-bullet {
+      display: flex; align-items: flex-start; gap: 7px;
+      font-size: 11px; color: var(--gray-600); line-height: 1.45;
+    }
+    .problem-card-bullet::before {
+      content: ''; width: 4px; height: 4px; border-radius: 50%;
+      background: var(--blue); flex-shrink: 0; margin-top: 5px;
+    }
     /* ─── Features Section ──────────────────────────────────────── */
     .features { background: var(--navy); overflow: hidden; position: relative;
       border-top: 3px solid var(--cream); border-bottom: 3px solid var(--cream); }
@@ -490,6 +512,45 @@
     .check { color: #16A34A; font-size: 18px; }
     .cross { color: #DC2626; font-size: 18px; }
     .partial { color: #CA8A04; font-size: 14px; font-weight: 600; }
+
+    /* ─── Falling Leaves ────────────────────────────────────── */
+    @keyframes leaf-fall {
+      0%   { transform: translateY(-60px) translateX(0px)   rotate(0deg);   opacity: 0; }
+      10%  { opacity: 0.65; }
+      25%  { transform: translateY(25vh)  translateX(28px)  rotate(90deg); }
+      50%  { transform: translateY(50vh)  translateX(-18px) rotate(195deg); }
+      75%  { transform: translateY(75vh)  translateX(22px)  rotate(275deg); }
+      90%  { opacity: 0.5; }
+      100% { transform: translateY(108vh) translateX(0px)   rotate(360deg); opacity: 0; }
+    }
+    .falling-leaf {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 0 60% 0 60%;
+      opacity: 0;
+      animation: leaf-fall linear infinite;
+    }
+
+    /* ─── Comparison: full-viewport layout ──────────────────── */
+    .comparison.section {
+      padding: 52px 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .comparison .container { position: relative; z-index: 2; }
+    .comparison .section-title { font-size: clamp(22px, 3vw, 36px); margin-bottom: 10px; }
+    .comparison .section-sub { font-size: 15px; margin-bottom: 0; }
+    .comparison .comparison-table-wrap { margin-top: 28px; }
+    .comparison .comparison-table th { padding: 15px 22px; font-size: 14px; }
+    .comparison .comparison-table td { padding: 13px 22px; font-size: 14px; }
+    .comparison .check { font-size: 17px; }
+    .comparison .cross { font-size: 17px; }
+    .comparison .partial { font-size: 13px; }
 
     /* ─── Solution / How It Works ───────────────────────────────── */
     .solution { background: var(--white); position: relative; }
@@ -586,37 +647,40 @@
     }
 
     /* ─── Testimonials ──────────────────────────────────────────── */
-    .testimonials { background: var(--navy); }
+    .testimonials { background: #F6E7BC; }
     .testimonials-grid {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
       margin-top: 48px;
     }
     .testimonial-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(11,45,114,0.1);
       border-radius: 20px; padding: 32px;
       transition: all var(--transition);
     }
     .testimonial-card:hover {
-      border-color: rgba(10,196,224,0.2);
-      background: rgba(10,196,224,0.05);
+      border-color: rgba(11,45,114,0.25);
+      background: rgba(255,255,255,0.85);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(11,45,114,0.1);
     }
     .testimonial-quote {
-      font-size: 32px; color: var(--cyan); line-height: 1; margin-bottom: 12px;
+      font-size: 32px; color: var(--navy); line-height: 1; margin-bottom: 12px;
     }
     .testimonial-text {
-      font-size: 15px; color: rgba(246,231,188,0.85); line-height: 1.75;
+      font-size: 15px; color: var(--gray-800); line-height: 1.75;
       font-style: italic; margin-bottom: 24px;
     }
     .testimonial-author { display: flex; align-items: center; gap: 12px; }
     .testimonial-avatar {
       width: 40px; height: 40px; border-radius: 50%;
-      background: linear-gradient(135deg,var(--cyan),var(--blue));
+      background: linear-gradient(135deg,var(--navy),var(--blue));
       display: flex; align-items: center; justify-content: center;
       font-weight: 700; color: var(--white); font-size: 14px;
     }
-    .testimonial-name { font-size: 14px; font-weight: 600; color: var(--white); }
-    .testimonial-role { font-size: 12px; color: rgba(246,231,188,0.6); }
+    .testimonial-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .testimonial-role { font-size: 12px; color: var(--gray-600); }
+    .testimonials .section-title { color: var(--navy); }
 
     /* ─── CTA Section ───────────────────────────────────────────── */
     .cta-section {
@@ -742,7 +806,7 @@
     <div class="container">
       <div class="nav-inner">
         <a href="#" class="nav-logo">
-          <div class="nav-logo-mark">ع</div>
+          <div class="nav-logo-mark"><img src="logo.jpeg" alt="ILM logo"/></div>
           <div class="nav-logo-text">IL<span>M</span></div>
         </a>
         <div class="nav-links">
@@ -831,7 +895,7 @@
             <!-- Main card -->
             <div class="mock-card mock-card-main">
               <div class="mock-header">
-                <div class="mock-avatar">ع</div>
+                <div class="mock-avatar"><img src="logo.jpeg" alt="ILM logo"/></div>
                 <div>
                   <div class="mock-title">ILM Dashboard</div>
                   <div class="mock-sub">Spring Semester 2025</div>
@@ -892,10 +956,6 @@
   <section class="section problem" id="problem">
     <div class="container">
       <div class="problem-header">
-        <p class="section-label">
-          <span class="en-text">The Problem</span>
-          <span class="ar-text">المشكلة</span>
-        </p>
         <h2 class="section-title">
           <span class="en-text">Current LMS platforms are failing students and educators.</span>
           <span class="ar-text">أنظمة إدارة التعلم الحالية تُخذل الطلاب والأساتذة.</span>
@@ -909,22 +969,91 @@
         <div class="problem-card">
           <div class="problem-card-icon">🐌</div>
           <div class="problem-card-title"><span class="en-text">Slow & Frustrating</span><span class="ar-text">بطيء ومحبط</span></div>
-          <div class="problem-card-text"><span class="en-text">Outdated UX and slow load times drain productivity every single day.</span><span class="ar-text">واجهة قديمة وبطء تحميل يستنزفان الإنتاجية يومياً.</span></div>
+          <div class="problem-card-text"><span class="en-text">Outdated UX and slow load times drain productivity every single day — for both students and instructors.</span><span class="ar-text">واجهة قديمة وبطء تحميل يستنزفان إنتاجية الطلاب والأساتذة يومياً.</span></div>
+          <div class="problem-card-bullets">
+            <div class="problem-card-bullet"><span class="en-text">Average page load of 8–12 seconds on campus networks</span><span class="ar-text">متوسط تحميل الصفحة 8–12 ثانية على شبكات الحرم الجامعي</span></div>
+            <div class="problem-card-bullet"><span class="en-text">Mobile experience is nearly unusable during peak hours</span><span class="ar-text">تجربة الجوال تكاد تكون غير قابلة للاستخدام في أوقات الذروة</span></div>
+          </div>
         </div>
         <div class="problem-card">
           <div class="problem-card-icon">🧩</div>
           <div class="problem-card-title"><span class="en-text">Too Many Tools</span><span class="ar-text">أدوات كثيرة جداً</span></div>
-          <div class="problem-card-text"><span class="en-text">Blackboard, Respondus, Teams — all separate licenses, all separate logins.</span><span class="ar-text">بلاك بورد وريسبونداس وتيمز — كل واحدة بترخيص وبيانات دخول منفصلة.</span></div>
+          <div class="problem-card-text"><span class="en-text">Blackboard, Respondus, Teams — all separate licenses, all separate logins. Switching between them kills focus.</span><span class="ar-text">بلاك بورد وريسبونداس وتيمز — كل واحدة بترخيص وبيانات دخول منفصلة. التنقل بينها يشتت التركيز.</span></div>
+          <div class="problem-card-bullets">
+            <div class="problem-card-bullet"><span class="en-text">5+ separate logins per user on average</span><span class="ar-text">أكثر من 5 تسجيلات دخول منفصلة لكل مستخدم في المتوسط</span></div>
+            <div class="problem-card-bullet"><span class="en-text">Integration failures between tools cause recurring data loss</span><span class="ar-text">أعطال التكامل تتسبب في فقدان البيانات بشكل متكرر</span></div>
+          </div>
         </div>
         <div class="problem-card">
           <div class="problem-card-icon">🌐</div>
           <div class="problem-card-title"><span class="en-text">No Local Support</span><span class="ar-text">لا دعم محلي</span></div>
-          <div class="problem-card-text"><span class="en-text">Global platforms don't understand Gulf academics, Arabic, or regional compliance.</span><span class="ar-text">المنصات العالمية لا تفهم الأكاديمية الخليجية أو العربية أو متطلبات الامتثال.</span></div>
+          <div class="problem-card-text"><span class="en-text">Global platforms don't understand Gulf academics, Arabic, or regional compliance — it was never their priority.</span><span class="ar-text">المنصات العالمية لا تفهم الأكاديمية الخليجية أو العربية أو متطلبات الامتثال — فهي لم تكن أولويتها.</span></div>
+          <div class="problem-card-bullets">
+            <div class="problem-card-bullet"><span class="en-text">RTL layout broken or inconsistent across most platforms</span><span class="ar-text">تخطيط RTL مكسور أو غير متسق في معظم المنصات</span></div>
+            <div class="problem-card-bullet"><span class="en-text">Support operates across time zones — delays of 24–48 hrs</span><span class="ar-text">الدعم يعمل عبر مناطق زمنية مختلفة — تأخيرات تصل إلى 24-48 ساعة</span></div>
+          </div>
         </div>
         <div class="problem-card">
           <div class="problem-card-icon">💸</div>
           <div class="problem-card-title"><span class="en-text">Hidden Costs</span><span class="ar-text">تكاليف خفية</span></div>
-          <div class="problem-card-text"><span class="en-text">Per-user fees across multiple platforms make budgeting unpredictable.</span><span class="ar-text">رسوم لكل مستخدم عبر منصات متعددة تجعل الميزانية غير قابلة للتنبؤ.</span></div>
+          <div class="problem-card-text"><span class="en-text">Per-user fees stacked across multiple platforms make budgeting unpredictable and consistently over estimate.</span><span class="ar-text">رسوم لكل مستخدم عبر منصات متعددة تجعل الميزانية غير قابلة للتنبؤ وتتجاوز التقديرات باستمرار.</span></div>
+          <div class="problem-card-bullets">
+            <div class="problem-card-bullet"><span class="en-text">Add-on costs routinely triple the initial quoted price</span><span class="ar-text">تكاليف الإضافات تضاعف السعر المعروض ثلاث مرات بشكل متكرر</span></div>
+            <div class="problem-card-bullet"><span class="en-text">No transparent all-inclusive pricing model in the market</span><span class="ar-text">لا يوجد نموذج تسعير شفاف وشامل في السوق</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ TESTIMONIALS ════════════════════ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">
+          <span class="en-text">Educator's Opinions</span>
+          <span class="ar-text">آراء المعلمين.</span>
+        </h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            <span class="en-text">Blackboard has been a nightmare for our faculty. The interface is outdated, file uploads crash regularly, and support tickets take weeks to resolve. Our students complain about it every single semester.</span>
+            <span class="ar-text">كان بلاك بورد كابوساً لأعضاء هيئة التدريس لدينا. الواجهة قديمة، ورفع الملفات يتعطل باستمرار، وتذاكر الدعم تستغرق أسابيع. يشكو طلابنا منه كل فصل دراسي.</span>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DA</div>
+            <div>
+              <div class="testimonial-name"><span class="en-text">Dr. Ahmed Al-Mansoori</span><span class="ar-text">د. أحمد المنصوري</span></div>
+              <div class="testimonial-role"><span class="en-text">Dean of Academic Affairs, Bahrain</span><span class="ar-text">عميد الشؤون الأكاديمية، البحرين</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            <span class="en-text">We pay for Canvas, then Zoom on top, then a separate proctoring tool, then a plagiarism checker. The total cost spiraled way beyond budget — and none of the tools actually talk to each other.</span>
+            <span class="ar-text">ندفع مقابل كانفاس، ثم زوم فوق ذلك، ثم أداة مراقبة منفصلة، ثم مدقق للسرقة الأدبية. تضاعفت التكاليف بعيداً عن الميزانية — ولا تتواصل هذه الأدوات مع بعضها أصلاً.</span>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">FR</div>
+            <div>
+              <div class="testimonial-name"><span class="en-text">Fatima Al-Rashidi</span><span class="ar-text">فاطمة الراشدي</span></div>
+              <div class="testimonial-role"><span class="en-text">IT Director, Gulf University</span><span class="ar-text">مديرة تقنية المعلومات، جامعة الخليج</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            <span class="en-text">Moodle looked affordable on paper but the setup, maintenance, and complete lack of Arabic support made it a constant headache. Our faculty spent more time fighting the system than actually teaching.</span>
+            <span class="ar-text">بدا ميدل بأسعار معقولة على الورق، لكن الإعداد والصيانة والغياب التام لدعم اللغة العربية جعله صداعاً مستمراً. قضى أعضاء هيئة التدريس وقتاً أطول في محاربة النظام بدلاً من التدريس.</span>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">OK</div>
+            <div>
+              <div class="testimonial-name"><span class="en-text">Prof. Omar Al-Khalifa</span><span class="ar-text">أ. عمر الخليفة</span></div>
+              <div class="testimonial-role"><span class="en-text">Head of EdTech, GCC Institute</span><span class="ar-text">رئيس تقنية التعليم، معهد الخليج</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1077,12 +1206,8 @@
   <section class="section comparison" id="comparison">
     <div class="container">
       <div class="text-center">
-        <p class="section-label">
-          <span class="en-text">Platform Comparison</span>
-          <span class="ar-text">مقارنة المنصات</span>
-        </p>
         <h2 class="section-title">
-          <span class="en-text">ILM vs. the old guard.</span>
+          <span class="en-text">Not all platforms are built equal.</span>
           <span class="ar-text">إلم مقابل المنصات التقليدية.</span>
         </h2>
         <p class="section-sub">
@@ -1117,13 +1242,6 @@
               <td><span class="partial">Partial</span></td>
             </tr>
             <tr>
-              <td class="feature-name"><span class="en-text">Live Video Classes</span><span class="ar-text">فصول فيديو مباشرة</span></td>
-              <td class="ilm-col"><span class="check">✓</span></td>
-              <td><span class="partial">Teams Add-on</span></td>
-              <td><span class="partial">Zoom Add-on</span></td>
-              <td><span class="partial">Plugin</span></td>
-            </tr>
-            <tr>
               <td class="feature-name"><span class="en-text">AI Plagiarism Detection</span><span class="ar-text">كشف السرقة بالذكاء الاصطناعي</span></td>
               <td class="ilm-col"><span class="check">✓</span></td>
               <td><span class="partial">Extra Cost</span></td>
@@ -1152,22 +1270,32 @@
               <td><span class="cross">✗</span></td>
             </tr>
             <tr>
-              <td class="feature-name"><span class="en-text">Affordable Pricing</span><span class="ar-text">أسعار مناسبة</span></td>
-              <td class="ilm-col"><span class="check">✓</span></td>
-              <td><span class="cross">Expensive</span></td>
-              <td><span class="partial">Moderate</span></td>
-              <td><span class="partial">Moderate</span></td>
-            </tr>
-            <tr>
               <td class="feature-name"><span class="en-text">Smart Analytics</span><span class="ar-text">تحليلات ذكية</span></td>
               <td class="ilm-col"><span class="check">✓</span></td>
               <td><span class="partial">Basic</span></td>
               <td><span class="partial">Basic</span></td>
               <td><span class="partial">Limited</span></td>
             </tr>
+            <tr>
+              <td class="feature-name"><span class="en-text">Mobile App</span><span class="ar-text">تطبيق الجوال</span></td>
+              <td class="ilm-col"><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="partial">Limited</span></td>
+              <td><span class="cross">✗</span></td>
+            </tr>
+            <tr>
+              <td class="feature-name"><span class="en-text">Annual Pricing (BHD)</span><span class="ar-text">السعر السنوي (د.ب)</span></td>
+              <td class="ilm-col" style="font-weight:700; color:#0AC4E0;">65,000</td>
+              <td style="font-weight:600; font-size:12px;">117,000<br/><span style="font-weight:400;color:#64748b;">per year</span></td>
+              <td style="font-weight:600; font-size:12px;">100,000<br/><span style="font-weight:400;color:#64748b;">per 10,000 users</span></td>
+              <td style="font-weight:600; font-size:12px;">120,000–350,000<br/><span style="font-weight:400;color:#64748b;">per 10,000 users/yr</span></td>
+            </tr>
           </tbody>
         </table>
       </div>
+      <p style="margin-top:16px; font-size:13px; color:var(--gray-600); text-align:center;">
+        * Secure exam lockdown is available as an add-on for <strong>30,000 BHD/year</strong>.
+      </p>
     </div>
   </section>
 
@@ -1178,10 +1306,6 @@
     <div class="container">
       <div class="trust-grid">
         <div>
-          <p class="section-label">
-            <span class="en-text">GCC Focus</span>
-            <span class="ar-text">التركيز الخليجي</span>
-          </p>
           <h2 class="section-title light">
             <span class="en-text">Built here.<br/>For institutions like yours.</span>
             <span class="ar-text">بُني هنا.<br/>لمؤسسات مثل مؤسستك.</span>
@@ -1236,10 +1360,6 @@
   <section class="section ai-tools" id="ai-tools">
     <div class="container">
       <div class="text-center">
-        <p class="section-label">
-          <span class="en-text">AI-Powered</span>
-          <span class="ar-text">مدعوم بالذكاء الاصطناعي</span>
-        </p>
         <h2 class="section-title">
           <span class="en-text">AI that works for<br/>educators, not against them.</span>
           <span class="ar-text">ذكاء اصطناعي يعمل<br/>لصالح المعلمين لا ضدهم.</span>
@@ -1282,65 +1402,6 @@
     </div>
   </section>
 
-  <!-- ════════════════════ TESTIMONIALS ════════════════════ -->
-  <section class="section testimonials" id="testimonials">
-    <div class="container">
-      <div class="text-center">
-        <p class="section-label">
-          <span class="en-text">Early Feedback</span>
-          <span class="ar-text">آراء مبكرة</span>
-        </p>
-        <h2 class="section-title light">
-          <span class="en-text">What educators are saying.</span>
-          <span class="ar-text">ما يقوله المعلمون.</span>
-        </h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-quote">"</div>
-          <div class="testimonial-text">
-            <span class="en-text">ILM completely transformed how we run assessments. Having AI detection and exam lockdown in the same system removes so much administrative friction.</span>
-            <span class="ar-text">غيّرت إلم تماماً طريقة إدارتنا للتقييمات. وجود الكشف بالذكاء الاصطناعي وقفل الامتحان في نظام واحد يزيل الكثير من العقبات الإدارية.</span>
-          </div>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">DM</div>
-            <div>
-              <div class="testimonial-name"><span class="en-text">Dr. Maryam Al-Hassan</span><span class="ar-text">د. مريم الحسن</span></div>
-              <div class="testimonial-role"><span class="en-text">Associate Professor, Computer Science</span><span class="ar-text">أستاذة مشاركة، علوم الحاسوب</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-quote">"</div>
-          <div class="testimonial-text">
-            <span class="en-text">Finally, an LMS that students don't hate. The interface is clean, the mobile experience actually works, and I can submit everything from one place.</span>
-            <span class="ar-text">أخيراً، نظام تعلم لا يكرهه الطلاب. الواجهة نظيفة، وتجربة الجوال تعمل فعلاً، ويمكنني تسليم كل شيء من مكان واحد.</span>
-          </div>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">SA</div>
-            <div>
-              <div class="testimonial-name"><span class="en-text">Sara Al-Farsi</span><span class="ar-text">سارة الفارسي</span></div>
-              <div class="testimonial-role"><span class="en-text">Student, Business Administration</span><span class="ar-text">طالبة، إدارة الأعمال</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-quote">"</div>
-          <div class="testimonial-text">
-            <span class="en-text">The AI quiz generator saves me hours every week. I upload my lecture slides and have a balanced, ready-to-publish exam in under two minutes.</span>
-            <span class="ar-text">مولّد اختبارات الذكاء الاصطناعي يوفر لي ساعات كل أسبوع. أرفع شرائح محاضرتي وأحصل على امتحان متوازن جاهز للنشر في أقل من دقيقتين.</span>
-          </div>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">KA</div>
-            <div>
-              <div class="testimonial-name"><span class="en-text">Khalid Al-Dosari</span><span class="ar-text">خالد الدوسري</span></div>
-              <div class="testimonial-role"><span class="en-text">Senior Lecturer, Engineering</span><span class="ar-text">محاضر أول، الهندسة</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ════════════════════ CTA ════════════════════ -->
   <section class="cta-section" id="cta">
@@ -1366,41 +1427,13 @@
     </div>
   </section>
 
-  <!-- ════════════════════ SECURITY BAR ════════════════════ -->
-  <div class="security-bar" id="pricing">
-    <div class="container">
-      <div class="security-items">
-        <div class="security-item">
-          <div class="security-item-icon">🔒</div>
-          <div class="security-item-text"><span class="en-text">GDPR-Level Data Privacy</span><span class="ar-text">خصوصية بيانات GDPR</span></div>
-        </div>
-        <div class="security-item">
-          <div class="security-item-icon">☁️</div>
-          <div class="security-item-text"><span class="en-text">Secure Cloud Infrastructure</span><span class="ar-text">بنية تحتية سحابية آمنة</span></div>
-        </div>
-        <div class="security-item">
-          <div class="security-item-icon">👥</div>
-          <div class="security-item-text"><span class="en-text">Role-Based Access Control</span><span class="ar-text">تحكم في الوصول حسب الأدوار</span></div>
-        </div>
-        <div class="security-item">
-          <div class="security-item-icon">🔗</div>
-          <div class="security-item-text"><span class="en-text">SIS & Google / Teams Integration</span><span class="ar-text">تكامل مع Google وTeams وSIS</span></div>
-        </div>
-        <div class="security-item">
-          <div class="security-item-icon">💰</div>
-          <div class="security-item-text"><span class="en-text">Flexible Per-Institution Pricing</span><span class="ar-text">تسعير مرن لكل مؤسسة</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ════════════════════ FOOTER ════════════════════ -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="nav-logo">
-            <div class="nav-logo-mark">ع</div>
+            <div class="nav-logo-mark"><img src="logo.jpeg" alt="ILM logo"/></div>
             <div class="nav-logo-text">IL<span>M</span></div>
           </div>
           <p class="footer-brand-text">
@@ -1416,35 +1449,6 @@
             <a href="#comparison"><span class="en-text">Compare</span><span class="ar-text">مقارنة</span></a>
             <a href="#pricing"><span class="en-text">Pricing</span><span class="ar-text">الأسعار</span></a>
           </div>
-        </div>
-        <div>
-          <div class="footer-col-title"><span class="en-text">Company</span><span class="ar-text">الشركة</span></div>
-          <div class="footer-links">
-            <a href="#local-trust"><span class="en-text">About ILM</span><span class="ar-text">عن إلم</span></a>
-            <a href="#cta"><span class="en-text">Careers</span><span class="ar-text">الوظائف</span></a>
-            <a href="#cta"><span class="en-text">Blog</span><span class="ar-text">المدونة</span></a>
-            <a href="#cta"><span class="en-text">Contact</span><span class="ar-text">تواصل معنا</span></a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title"><span class="en-text">Legal</span><span class="ar-text">قانوني</span></div>
-          <div class="footer-links">
-            <a href="#"><span class="en-text">Privacy Policy</span><span class="ar-text">سياسة الخصوصية</span></a>
-            <a href="#"><span class="en-text">Terms of Service</span><span class="ar-text">شروط الخدمة</span></a>
-            <a href="#"><span class="en-text">Security</span><span class="ar-text">الأمان</span></a>
-            <a href="#"><span class="en-text">Compliance</span><span class="ar-text">الامتثال</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-copy">
-          <span class="en-text">© 2025 ILM. All rights reserved. Built in Bahrain 🇧🇭</span>
-          <span class="ar-text">© 2025 إلم. جميع الحقوق محفوظة. صُنع في البحرين 🇧🇭</span>
-        </div>
-        <div class="footer-socials">
-          <div class="social-btn">in</div>
-          <div class="social-btn">𝕏</div>
-          <div class="social-btn">ig</div>
         </div>
       </div>
     </div>
@@ -1529,6 +1533,37 @@
     }, { threshold: 0.1 });
 
     animatables.forEach(el => observer.observe(el));
+
+    // Falling blue leaves on comparison section
+    (function() {
+      const section = document.querySelector('.comparison');
+      if (!section) return;
+      const colors = [
+        'rgba(10,196,224,0.55)',
+        'rgba(9,146,194,0.45)',
+        'rgba(11,45,114,0.30)',
+        'rgba(10,196,224,0.35)',
+        'rgba(9,146,194,0.60)',
+      ];
+      const total = 35;
+      for (let i = 0; i < total; i++) {
+        const leaf = document.createElement('div');
+        leaf.className = 'falling-leaf';
+        const size = Math.random() * 14 + 9;
+        // Evenly spread across width with small random offset
+        const baseLeft = (i / total) * 100;
+        const left = Math.min(98, Math.max(2, baseLeft + (Math.random() * 6 - 3)));
+        leaf.style.cssText = [
+          `width:${size}px`,
+          `height:${size * 1.7}px`,
+          `left:${left}%`,
+          `background:${colors[Math.floor(Math.random() * colors.length)]}`,
+          `animation-duration:${(Math.random() * 7 + 6).toFixed(1)}s`,
+          `animation-delay:${(Math.random() * 12).toFixed(1)}s`,
+        ].join(';');
+        section.appendChild(leaf);
+      }
+    })();
   </script>
 </body>
 </html>
