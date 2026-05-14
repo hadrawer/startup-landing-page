@@ -1,0 +1,1 @@
+.S3ZeNq_skeleton{background-image:var(--tweet-skeleton-gradient);background-size:400% 100%;border-radius:5px;width:100%;animation:8s ease-in-out infinite S3ZeNq_loading;display:block}@media (prefers-reduced-motion:reduce){.S3ZeNq_skeleton{background-position:200% 0;animation:none}}@keyframes S3ZeNq_loading{0%{background-position:200% 0}to{background-position:-200% 0}}

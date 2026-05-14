@@ -49,3 +49,70 @@ Professional, confident, clear, and investor-friendly. Avoid exaggerated marketi
 
 Output:
 Generate the full landing page design and content. Include layout suggestions, section structure, headings, short copy, button text, and visual direction. Make it responsive for desktop and mobile.
+
+
+
+
+ilm — The Future of Learning Platforms
+
+Hero Section
+Headline: Replace outdated LMS platforms with one intelligent system.
+Subheadline: ilm is a modern, AI-powered learning platform built for universities and schools — combining teaching, assessment, and secure exams in one seamless experience.
+Primary CTA: Get Early Access
+Secondary CTA: Book a Demo
+Built for institutions across the GCC
+
+The Problem
+Traditional LMS platforms — including Blackboard Learn, Canvas LMS, and Moodle — are expensive and difficult to scale, outdated in design and user experience, disconnected from modern AI workflows, and inadequate in exam integrity and proctoring.
+
+The Solution
+ilm replaces fragmented tools with one unified system covering learning management, assessments and exams, a secure lockdown environment, built-in AI tools, and analytics and reporting — all in a single platform that is fast, modern, and affordable.
+
+Core Features
+AI-Powered Education
+Generate quizzes, exams, and assignments instantly. Summarize lecture materials and PDFs. Detect plagiarism and AI-generated submissions. Deliver personalized learning suggestions for students.
+Secure Exam Lockdown
+A built-in lockdown browser eliminates the need for third-party tools like Respondus. Prevents tab switching, copy/paste, and screen recording. Includes real-time monitoring and flagging.
+Modern UX That Students Actually Use
+A clean, intuitive interface that replaces the complexity of legacy systems. Mobile-first experience with fast performance and no unnecessary clutter.
+Competitive Pricing
+Significantly more affordable than legacy platforms. Flexible per-institution pricing with no hidden costs for add-ons.
+Smart Analytics
+Track student performance in real time. Identify at-risk students early. Deliver course-level insights for educators.
+
+Built for Institutions
+ilm is designed specifically for universities, colleges, schools, and training centers. Key benefits include easy onboarding for faculty, seamless migration from existing LMS platforms, and scalability across departments.
+
+Comparison
+FeatureilmBlackboardCanvasMoodleBuilt-in AIYesNoNoNoLockdown ExamsYesRequires extra toolsPartialPartialModern UIYesNoPartialNoPricingAffordableExpensiveModerateModerateEase of UseHighLowModerateLow
+
+Key Differentiators
+AI-generated exams with difficulty balancing. Automatic grading with explanation-level feedback. Integrated AI detection and plagiarism checking in a single engine. Adaptive "Smart Courses" that adjust based on student performance. One-click course creation from a syllabus.
+
+Why ilm Wins
+ilm is not just another LMS — it is a complete academic operating system. It replaces four to six separate tools, reduces institutional costs, improves student engagement, and future-proofs education with AI at its core.
+
+Testimonials
+"ilm completely transformed how we run assessments."
+— University Instructor
+"Finally, an LMS students don't hate."
+— Student
+
+Call to Action
+Upgrade your institution's learning experience.
+Book a Demo — Join the Waitlist
+
+Security and Compliance
+Data privacy built to GDPR-level standards. Secure cloud infrastructure. Role-based access control.
+Integrations
+Google Classroom and Drive, Microsoft Teams, Student Information Systems (SIS).
+Migration Support
+Import courses directly from Blackboard, Canvas, and Moodle. Dedicated onboarding team included.
+
+Positioning Options
+"The AI-native LMS." / "Education, reimagined." / "One platform. Total control." / "The last LMS you'll ever need."
+
+Strategic Note
+The concept is strong, but the competitive landscape is evolving — AI-powered LMS tools, built-in proctoring, and smart grading are emerging categories globally. The sustainable advantage lies in regional focus and execution: GCC-specific pricing and compliance, superior UX compared to global incumbents, and a genuinely all-in-one offering where most competitors remain fragmented. That is where ilm wins.
+
+
