@@ -1,0 +1,51 @@
+Create a modern, professional landing page for a startup project called “ILM”.
+
+ILM is a local Gulf-based educational platform, designed as a smarter and faster alternative to Blackboard for universities and schools in Bahrain and the GCC.
+
+The platform combines multiple tools into one website instead of forcing users to depend on many separate systems.
+
+Core idea:
+ILM is an all-in-one academic platform that includes:
+1. A Blackboard alternative for courses, materials, grades, announcements, and academic management.
+2. A LockDown Browser alternative for secure online exams.
+3. A Microsoft Teams alternative for live classes, meetings, chat, and collaboration.
+4. An AI detector tool for doctors and instructors to check student submissions.
+5. An AI generator for doctors to create quizzes, assignments, assessments, and midterm exams when needed.
+
+What makes ILM different from normal Blackboard:
+- It combines several platforms into one unified system.
+- It solves the common problem of Blackboard being slow and frustrating.
+- It is locally based in Bahrain, which means faster customer support and quicker issue fixing.
+- It understands Gulf universities, students, doctors, and academic needs better.
+- It feels closer to the user because it is designed for the local education environment.
+- It gives stronger confidence in data privacy because the platform is local and region-focused.
+
+Design direction:
+Suggest a completely new and modern design concept. Do not copy Blackboard, Microsoft Teams, or any existing LMS design. The page should feel original, polished, and human-designed, not generic or obviously AI-generated.
+
+Visual style:
+- Modern SaaS landing page
+- Clean, premium, and trustworthy
+- Suitable for education, universities, and government/private institutions
+- Use a professional color palette inspired by technology, trust, and the Gulf region
+- Avoid childish education visuals
+- Use strong spacing, elegant typography, smooth sections, and realistic UI mockups
+- The design should feel startup-ready and presentation-ready
+
+Landing page sections:
+1. Hero section with a strong headline about replacing outdated academic systems with one faster local platform.
+2. Short subheading explaining that ILM combines LMS, secure exams, live classes, AI detection, and AI academic content generation.
+3. Call-to-action buttons such as “Request a Demo” and “Explore Features”.
+4. Feature section showing the five main platform modules.
+5. Problem section explaining why current systems like Blackboard are slow, fragmented, and not locally supported.
+6. Solution section explaining how ILM solves these problems.
+7. Comparison section showing ILM vs traditional Blackboard.
+8. Local trust section focusing on Bahrain, GCC support, faster response, and data privacy.
+9. AI tools section explaining the AI detector and AI quiz/assessment generator for doctors.
+10. Final CTA section encouraging universities and institutions to try ILM.
+
+Tone:
+Professional, confident, clear, and investor-friendly. Avoid exaggerated marketing claims. Keep the text realistic and suitable for a startup pitch or university presentation.
+
+Output:
+Generate the full landing page design and content. Include layout suggestions, section structure, headings, short copy, button text, and visual direction. Make it responsive for desktop and mobile.
